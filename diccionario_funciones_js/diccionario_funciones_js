@@ -1,0 +1,348 @@
+/* A */
+// Arrays: var/let nombre [ lista de variables ]
+
+// Arrow function:
+let saluda = () => console.log("Hola");
+saluda(); // una función que se define utilizando la sintaxis () =>. Esta función es una forma más concisa de escribir funciones y es útil para funciones de una sola línea.
+
+// Clase Constructora Array: La clase constructora Array proporciona una forma fácil y flexible de crear arrays con diferentes elementos y longitudes.
+let myArray = new Array(1, 2, 3, 4);
+
+Array.from() // permite crear un nuevo array a partir de un objeto similar a un array o iterable.
+let myArray = Array.from('hello');
+console.log(myArray); // ["h", "e", "l", "l", "o"]
+
+Array(n).fill() // La función fill() permite llenar un array con un valor específico.
+let myArray = new Array(5).fill(0);
+console.log(myArray); // [0, 0, 0, 0, 0]
+
+Array.isArray() // permite determinar si un objeto es un array o no.
+let myArray = [1, 2, 3, 4];
+console.log(Array.isArray(myArray)); // true
+
+//Crear nuevas instancias del array: Una forma de hacer una copia de un array es crear una nueva instancia del mismo array.
+const originalArray = [1, 2, 3, 4];
+const copiedArray = new Array(...originalArray);
+console.log(originalArray === copiedArray); // Output: false
+
+//Métodos de incorporado: Otro enfoque para hacer una copia de un array es utilizar los métodos incorporados de JavaScript. Por ejemplo, puedes utilizar el método slice para hacer una copia de un array:
+const originalArray = [1, 2, 3, 4];
+const copiedArray = originalArray.slice();
+console.log(originalArray === copiedArray); // Output: false
+
+//Spread operator: El spread operator es una forma conveniente de hacer una copia de un array. El spread operator se utiliza para expandir los elementos de un array en una lista:
+const originalArray = [1, 2, 3, 4];
+const copiedArray = [...originalArray];
+console.log(originalArray === copiedArray); // Output: false
+
+//Arrays Bidimensionales: Los arrays bidimensionales son un tipo de estructura de datos en la que cada elemento es un array y cada uno de esos arrays contiene más elementos.
+//En otras palabras, son arrays de arrays.
+const matrix = [];
+matrix[0] = [1, 2, 3];
+matrix[1] = [4, 5, 6];
+matrix[2] = [7, 8, 9];
+console.log(matrix);// Output: [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+// También se pueden crear con la clase constructora
+const matrix = new Array(3);
+for (let i = 0; i < matrix.length; i++) {
+  matrix[i] = new Array(3);
+}
+matrix[0][0] = 1;
+matrix[0][1] = 2;
+matrix[0][2] = 3;
+matrix[1][0] = 4;
+matrix[1][1] = 5;
+matrix[1][2] = 6;
+matrix[2][0] = 7;
+matrix[2][1] = 8;
+matrix[2][2] = 9;
+console.log(matrix) // Output: [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+
+//Acceso a un elemento de un array Bidimensional: Para acceder a un elemento específico en un array bidimensional, debes proporcionar dos índices.
+//Por ejemplo, si deseas acceder al elemento 5 en el ejemplo anterior, puedes hacerlo de la siguiente manera:
+console.log(matrix[1][1]); // Output: 5
+
+//Copia de un array Bidimensional: Además de crear y acceder a los elementos de un array bidimensional, también puedes copiar un array bidimensional utilizando el spread operator:
+const originalMatrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]];
+const copiedMatrix = [...originalMatrix];
+console.log(originalMatrix === copiedMatrix); // Output: false
+
+//Array tridimensional:
+const cube = [];
+for (let i = 0; i < 3; i++) {
+  cube[i] = [];
+	for (let j = 0; j < 3; j++) {
+		cube[i][j] = [];
+		for (let k = 0; k < 3; k++) {
+			cube[i][j][k] = i + j + k;
+		}
+	}
+}
+console.log(cube);
+// Output:
+//[
+//  [[0, 1, 2], [1, 2, 3], [2, 3, 4]],
+//  [[1, 2, 3], [2, 3, 4], [3, 4, 5]],
+//  [[2, 3, 4], [3, 4, 5], [4, 5, 6]]
+//]
+
+Array.prototype.every() // es una función que se utiliza en los arrays en JavaScript para comprobar si todos los elementos del array cumplen con una determinada condición.
+const numbers = [1, 2, 3, 4, 5];
+const allPositive = numbers.every(function(element) {
+	return element > 0;
+});
+console.log(allPositive); // Output: true
+// Con objetos:
+const objects = [{name: 'John'}, {name: 'Jane'}, {name: 'Jim'}];
+const allHaveName = objects.every(function(element) {
+  return element.hasOwnProperty('name');
+});
+console.log(allHaveName); // Output: true
+
+Array.prototype.Find() // se puede utilizar en arrays para encontrar un elemento que cumpla con una condición determinada. Este devuelve el primer elemento que cumpla.
+const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+const result = numbers.find(number => number > 5);
+console.log(result); // Output: 6
+// Con objetos:
+const people = [{ name: 'John', age: 32 }, { name: 'Jane', age: 28 },{ name: 'Jim', age: 40 }];
+const result = people.find(person => person.age === 32);
+console.log(result); // Output: { name: 'John', age: 32 }
+
+Array.prototype.findIndex() // es una función que se utiliza para buscar un elemento en un array y devolver el índice de su primera aparición. Este método acepta un callback como argumento
+const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+const index = numbers.findIndex(num => num > 5);
+console.log(index); // Output: 5. A diferencia del método find, en este caso, solo se devuelve el primer indice del elemento que cumpla la condición
+// Si no se encuentra ningún elemento que cumpla con la condición, findIndex devuelve -1.
+const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+const index = numbers.findIndex(num => num > 100);
+console.log(index); // Output: -1
+
+
+
+/* B */
+boolean() // para determinar si un valor es verdadero o falso.
+
+//BigInt: Los bigint son un nuevo tipo de dato en JavaScript que se usa para representar números enteros de un tamaño mayor al que puede manejar JavaScript de manera nativa.
+const numeroGrande = 12345678901234567890n;
+console.log(numeroGrande + 1n); // 12345678901234567891n
+console.log(numeroGrande * 2n); // 2469135780246913578n
+console.log(numeroGrande / 3n); // 411218936707805260n
+//Es importante tener en cuenta que los bigint solo pueden ser usados para operaciones matemáticas y no pueden ser usados con operadores de comparación, como == o ===.
+//En su lugar, debes usar los métodos BigInt.asIntN y BigInt.asUintN para hacer comparaciones entre bigint y números normales.
+
+
+/* C */
+consol.log() // es una palabra reservada de JS para imprimir cualquier cosa en consola.
+
+const nombre = something // constante
+
+/* D */
+/* E */
+/* F */
+//Función expresión:
+let saluda = function () {
+  console.log("Hola");
+}; // una función que se define como una expresión y puede ser asignada a una variable. Esta función también puede ser llamada y reutilizada.
+saluda();
+
+function() // es para llamar funciones
+
+// ciclo: El ciclo “for” es utilizado para repetir un bloque de código un número específico de veces. Su sintaxis básica es la siguiente:
+
+for (inicialización; condición; actualización) {
+  // código a ejecutar
+}
+//for in: El ciclo for-in se utiliza para recorrer las propiedades de un objeto
+for (const prop in user) {
+	console.log(user[prop])
+}// "Pepito", 20, "JavaScript developer"
+
+//El ciclo for-on se utiliza para recorrer los elementos de un array
+const technologies = ["js", "html", "node", "php"]
+
+for (const element of technologies) {
+  console.log(element)
+} // "js" "html" "node" "php"
+
+forEach() // Ejecuta la función indicada una vez por cada elemento del array.
+const array1 = ['a', 'b', 'c'];
+
+array1.forEach(element => console.log(element)); // Expected output: "a" Expected output: "b" Expected output: "c"
+
+/* G */
+/* H */
+/* I */
+
+// if() sintaxis:
+if (condición) {
+   sentencia1
+} else if (condicion){
+  sentencia2
+} else {
+   sentencia3
+}
+
+indexOf() // Encontrar el índice de un elemento del Array
+
+//IIFE (Immediately Invoked Function Expression):
+(function () {
+  console.log("Soy una IIFE");
+})(); // una función que se autoejecuta inmediatamente después de ser definida. Esta función es anónima y no se puede reutilizar.
+
+
+/* J */
+/* K */
+/* L */
+let nombre = something // variable que puede cambiar
+
+length // Devuelve la longitud de un string.
+/* M */
+
+map() // permite aplicar una función a cada elemento del array y devolver un nuevo array con los valores modificados.
+const numeros = [1, 2, 3, 4, 5];
+const cuadrados = numeros.map(function(numero) {
+  return numero * numero;
+});
+console.log(cuadrados); // [1, 4, 9, 16, 25]
+
+Math.max() // retorna el mayor de cero o más números dados como parámetros de entrada
+/* N */
+number() // para introducir números de forma forzada dentro de variables
+
+//Notación cientifica:
+const numeroGrande = 1e6; // 1 millón
+const numeroPequeño = 1e-6; // 0.000001
+
+//Null:
+// tipo de dato que representa un valor vacío o nulo.
+const nombre = null;
+console.log(nombre); // imprime "null".
+
+/* O */
+// objeto {propiedades del objeto}
+
+Object.values() // devuelve un array con los valores correspondientes a las propiedades enumerables de un objeto.
+//Las propiedades son devueltas en el mismo orden a como lo haría un bucle for...in (la única diferencia es que un bucle for-in también
+//enumera las propiedades en la cadena de prototipo de un objeto).
+const object1 = {
+  a: 'somestring',
+  b: 42,
+  c: false
+};
+console.log(Object.values(object1)); // Expected output: Array ["somestring", 42, false]
+
+Object.keys() // devuelve un arreglo de propiedades enumerables propias de un objeto dado.
+const object1 = {
+  a: 'somestring',
+  b: 42,
+  c: false
+};
+console.log(Object.keys(object1)); // Expected output: Array ["a", "b", "c"]
+
+/* P */
+push() // Añadir un elemento al final de un Array
+
+pop() // Eliminar un elemento al final del array
+
+//Propiedades de un objeto:
+// Para acceder a las propiedades de un objeto
+console.log(persona.cursoFavorito.nombre); // el operador .
+
+console.log(persona["platziRank"]); // notación de corchetes []
+
+
+/* Q */
+/* R */
+
+reduce() // permite combinar todos los elementos del array en un solo valor. Más info https://delacruz.dev/blog/funcion-reduce-javascript
+const suma = numeros.reduce(function(acumulador, numero) {
+  return acumulador + numero;
+}, 0);
+console.log(suma); // 15
+
+repeat() //  construye y devuelve una nueva cadena que contiene el número especificado de copias de la cadena en la cual fue llamada, concatenados.
+
+/* S */
+shift() // Eliminar el primer elemento de un Array
+
+string() // para introducir palabras de forma forzada dentro de variables.
+
+// Symbol: Los símbolos son un tipo de dato único en JavaScript que se utiliza para crear identificadores únicos.
+const simbolo = Symbol();
+let perrito = {
+  nombre: "Firulais",
+  edad: 3,
+  [simbolo]: "Identificador único"
+};
+console.log(perrito[simbolo]); // "Identificador único"
+//También puedes proporcionar una descripción opcional al crear un símbolo
+const simbolo = Symbol("Identificador único de gatitos");
+
+//switch() sintaxis:
+switch (expresión) {
+  case valor1:
+    //Declaraciones ejecutadas cuando el resultado de expresión coincide con el valor1
+    break;
+default:
+    //Declaraciones ejecutadas cuando ninguno de los valores coincide con el valor de la expresión
+    break;
+
+substring() // Devuelve una parte del string.
+
+/* T */
+// typeof() //se usa para saber el tipo de valor.
+
+// Template literal:
+console.log(`Hola, ${nombre} ${apellido}!`); // "Hola, Platzi Academy!" // strings que incluyen variables y expresiones
+
+toUpperCase() // Devuelve el string en mayúsculas.
+
+toLowerCase() // Devuelve el string en minúsculas.
+/* U */
+unshift() // Añadir un elemento al principio de un Array
+
+//Undefined: tipo de dato que representa un valor que aún no ha sido asignado o que no tiene un valor válido.
+
+/* V*/
+
+var nombre = //variable que puede cambiar
+
+/* W */
+//while:  se utiliza para repetir un bloque de código mientras se cumpla una determinada condición:
+while (condición) {
+  // código a ejecutar
+}
+//do-while: tiene una pequeña diferencia, el código dentro del ciclo se ejecutará al menos una vez antes de evaluar la condición
+let i = 1;
+do {
+	console.log(i);
+	i++;
+	} while (i <= 10);
+
+/* Y */
+
+/* Z */
+
+/* OPERADORES
+Comparación:
+Igual que: ==
+Estrictamente igual que: ===
+Mayor o igual que:  > or >= or >==
+Menor o igual que: < or <= or <==
+Diferente que: != or !==
+
+Arimeticos
++   (Se usa para sumar o para concatenar dos números)
+-  resta
+* Multiplicación
+/ División
+% módulo
+** Potenciación
+
+Lógicos
+! NOT (negación)
+&& AND
+|| OR
+
+Asignación
+= */
